@@ -1,0 +1,21 @@
+name: Playwright Tests
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  playwright:
+    name: 'Playwright Tests'
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright/python:v1.65.2-noble
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install dependencies
+        run: |
+          python -c "import ssl; print(ssl.OPENSLL_VERSION)"
+          python -m pip install -r requirements.txt
+      - name: Run your tests
+        run: python -m pytest
