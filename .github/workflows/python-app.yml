@@ -9,13 +9,14 @@ jobs:
     name: 'Playwright Tests'
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright/python:v1.55.0-noble
+      image: mcr.microsoft.com/playwright/python:v1.65.2-noble
       options: --user 1001
     steps:
       - uses: actions/checkout@v5
       - name: Install dependencies
         run: |
-          python -c "import ssl; print(ssl.OPENSSL_VERSION)"
           python -m pip install -r requirements.txt
-      - name: Run your tests
+      - name: Install Playwright Chromium
+        run: python -m playwright install chromium
+      - name: Run tests
         run: python -m pytest
