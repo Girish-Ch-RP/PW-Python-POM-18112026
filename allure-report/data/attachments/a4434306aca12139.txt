@@ -1,0 +1,8 @@
+[OK] Starting browser: chromium
+[OK] Headless mode: False (headed=True)
+Navigation to: https://demoblaze.com/
+[TRACE] Tracing enabled - capturing screenshots and actions
+Samsung galaxy s6
+[RESULT] Test 'test_place_order2' result: [PASS]
+[SAVE] Trace saved: reports/traces/test_place_order2_trace.zip
+[CLEAN UP Closing browser context and stopping Playwright....
